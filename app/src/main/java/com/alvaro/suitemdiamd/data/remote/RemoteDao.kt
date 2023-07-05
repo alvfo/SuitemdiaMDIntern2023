@@ -1,0 +1,19 @@
+package com.alvaro.suitemdiamd.data.remote
+
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+
+@Dao
+interface RemoteDao {
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(remoteKey: List<RemoteKey>)
+
+    @Query("SELECT * FROM remote_keys WHERE id = :id")
+    suspend fun getRemoteKeysId(id: Int): RemoteKey?
+
+    @Query("DELETE FROM remote_keys")
+    suspend fun deleteRemoteKeys()
+}
