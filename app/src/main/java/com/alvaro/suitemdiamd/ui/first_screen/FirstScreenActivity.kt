@@ -42,9 +42,9 @@ class FirstScreenActivity : AppCompatActivity() {
                 lifecycleScope.launchWhenStarted {
                     viewModel.isPalindrome.collect { reversed ->
                         if(reversed)
-                            showDialog("Result", "isPalindrome")
+                            showDialog("Hasil", "ini adalah Palindrome")
                         else
-                            showDialog("Result", "not palindrome")
+                            showDialog("Hasil", "ini bukan Palindrome")
                     }
                 }
             }
